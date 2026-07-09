@@ -123,9 +123,11 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration config = new CorsConfiguration();
+        // config.setAllowedHeaders(Collections.singletonList("*")); //허용헤더
         config.setAllowedHeaders(Collections.singletonList("*")); //허용헤더
         config.setAllowedMethods(Collections.singletonList("*")); //허용메서드
-        config.setAllowedOriginPatterns(Collections.singletonList("http://localhost:3000"));  //허용도메인
+        // config.setAllowedOriginPatterns(Collections.singletonList("http://localhost:3000"));  //허용도메인
+        config.setAllowedOriginPatterns(Collections.singletonList("*"));  //허용도메인
         config.setAllowCredentials(true); // COOKIE TOKEN OPTION
         return new CorsConfigurationSource(){
             @Override
