@@ -23,7 +23,7 @@ COPY --from=build /app/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # 포트 노출
-EXPOSE 80
+EXPOSE 80 443
 
 # Nginx 실행
 CMD ["nginx", "-g", "daemon off;"]
