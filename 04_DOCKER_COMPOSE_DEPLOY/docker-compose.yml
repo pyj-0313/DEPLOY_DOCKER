@@ -51,7 +51,8 @@ services:
       context: ./FN
     container_name: fn-container
     ports:
-      - "3000:80"
+      - "80:80"
+      - "443:443"
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro      # 호스트 인증서 -> 컨테이너
       - /var/www/certbot:/var/www/certbot         # 갱신 챌린지용
