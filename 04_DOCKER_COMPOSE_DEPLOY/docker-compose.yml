@@ -52,6 +52,9 @@ services:
     container_name: fn-container
     ports:
       - "3000:80"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro      # 호스트 인증서 -> 컨테이너
+      - /var/www/certbot:/var/www/certbot         # 갱신 챌린지용
     depends_on:
       bn:
         condition: service_healthy
@@ -85,7 +88,7 @@ services:
 
     networks:
       custom-network:
-        ipv4_address: 172.30.0.40  
+        ipv4_address: 172.30.0.40
 
         
 volumes:
